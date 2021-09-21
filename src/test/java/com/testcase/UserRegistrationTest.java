@@ -172,5 +172,24 @@ public class UserRegistrationTest {
 		boolean result = user.validatePassword("exam@13");
 		Assert.assertFalse(result);
 	}
-
+	
+	/**
+	 * Test case passes when a valid mail id is provided
+	 */
+	@Test
+	public void givenemail_whichisproper_returntrue() {
+		UserRegistration user = new UserRegistration();
+		boolean result = user.validateEmail("anirudhamayya23@gmail.com");
+		Assert.assertTrue(result);
+	}
+	
+	/**
+	 * Test case passes when invalid  mail id is given
+	 */
+	@Test
+	public void givenemail_whichisinvalid_returnfalse() {
+		UserRegistration user = new UserRegistration();
+		boolean result = user.validateEmail("examplemail@11");
+		Assert.assertFalse(result);
+	}
 }
