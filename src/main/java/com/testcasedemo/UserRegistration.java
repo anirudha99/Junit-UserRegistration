@@ -15,25 +15,55 @@ public class UserRegistration {
 	final String PASSWORD = "(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,20}";
 
 
-	public boolean validateFirstName(String firstname) {
-		return Pattern.matches(NAME, firstname);
+	public boolean validateFirstName(String firstname) throws InvalidUserDetailException {
+		boolean result = Pattern.matches(NAME, firstname);
+		if (result) {
+			return true;
+		}
+		else {
+			throw new InvalidUserDetailException(firstname);
+		}
 	}
 
-	public boolean validateLastName(String lastname) {
-		return Pattern.matches(NAME, lastname);
+	public boolean validateLastName(String lastname) throws InvalidUserDetailException {
+		boolean result = Pattern.matches(NAME, lastname);
+		if (result) {
+			return true;
+		}
+		else {
+			throw new InvalidUserDetailException(lastname);
+		}
 	}
 
-	public boolean validatePhoneNumber(String phoneNumber) {
-		return Pattern.matches(PHONE, phoneNumber);
+	public boolean validatePhoneNumber(String phoneNumber) throws InvalidUserDetailException{
+		boolean result = Pattern.matches(PHONE, phoneNumber);
+		if (result) {
+			return true;
+		}
+		else {
+			throw new InvalidUserDetailException(phoneNumber);
+		}
 	}
 	
-	public boolean validateEmail(String email) {
-		return Pattern.matches(EMAIL, email);
-
+	public boolean validateEmail(String email) throws InvalidUserDetailException {
+		boolean result = Pattern.matches(EMAIL, email);
+		if (result) {
+			return true;
+		}
+		else {
+			throw new InvalidUserDetailException(email);
+		}
+		
 	}
 	
-	public boolean validatePassword(String password) {
-		return Pattern.matches(PASSWORD, password);
+	public boolean validatePassword(String password) throws InvalidUserDetailException{
+		boolean result = Pattern.matches(PASSWORD, password);
+		if (result) {
+			return true;
+		}
+		else {
+			throw new InvalidUserDetailException(password);
+		}
 	}
 
 }
