@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import com.testcasedemo.InvalidUserDetailException;
 import com.testcasedemo.UserRegistration;
 
 @RunWith(Parameterized.class)
@@ -53,7 +54,11 @@ public class ParameterizedEmailTest {
 	@SuppressWarnings("deprecation")
 	@Test
 	public void parameterized_emailtesting_returntrueorfalse() {
-		Assert.assertEquals(expectedResult, user.validateEmail(email));
+		try {
+			Assert.assertEquals(expectedResult, user.validateEmail(email));
+		} catch (InvalidUserDetailException e) {
+			e.printStackTrace();
+		}
 	}
 
 	
