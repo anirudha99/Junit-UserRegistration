@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import com.testcasedemo.InvalidUserDetailException;
 import com.testcasedemo.UserRegistration;
+import com.testcasedemo.IValidUserDetail;
 
 public class UserRegistrationTest {
 	
